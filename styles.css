@@ -1,0 +1,86 @@
+:root{
+  --bg:#fff8f3;           /* ベージュ寄りの背景 */
+  --fg:#1a1a1a;          /* 文字色 */
+  --warm:#e4512b;        /* 暖色（オレンジ寄りの赤） */
+  --warm-700:#c73c1a;
+  --accent:#111;         /* アクセントの黒 */
+  --muted:#7a7a7a;
+  --card:#ffffff;
+  --shadow:0 10px 30px rgba(0,0,0,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Noto Sans JP", system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", "Yu Gothic", Meiryo, sans-serif;
+  color:var(--fg);
+  background:var(--bg);
+  line-height:1.75;
+}
+img{max-width:100%;display:block}
+.container{width:min(1100px,92%);margin-inline:auto}
+.section{padding:64px 0}
+.section-title{font-size:clamp(22px,2.6vw,32px);margin:0 0 16px;font-weight:700}
+.section-lead{color:var(--muted);margin:-4px 0 28px}
+.grid-2{display:grid;grid-template-columns:1fr;gap:28px}
+@media (min-width: 820px){.grid-2{grid-template-columns:1.05fr .95fr;gap:40px}}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(0,0,0,.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;text-decoration:none;color:var(--accent)}
+.site-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:20px}
+.site-nav a{color:var(--fg);text-decoration:none;padding:8px 10px;border-radius:8px}
+.site-nav a:hover{background:rgba(0,0,0,.05)}
+.nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;border:1px solid rgba(0,0,0,.1);background:#fff}
+@media (min-width:840px){.nav-toggle{display:none}}
+@media (max-width:839px){
+  .site-nav{position:fixed;inset:64px 0 auto 0;background:#fff;box-shadow:var(--shadow);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.2s;padding:12px}
+  .site-nav.open{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .site-nav ul{flex-direction:column}
+}
+
+/* Hero */
+.hero{position:relative;min-height:70vh;display:grid;place-items:center;}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=2000&auto=format&fit=crop');background-size:cover;background-position:center;}
+.hero-content{position:relative;text-align:center;color:#fff;padding:80px 0}
+.catch{font-size:clamp(28px,4.8vw,48px);margin:0 0 10px}
+.sub{margin:0 0 24px;opacity:.9}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700}
+.btn-primary{background:var(--warm);color:#fff}
+.btn-primary:hover{background:var(--warm-700)}
+.btn-outline{border:2px solid #fff;color:#fff}
+.btn-outline:hover{background:#fff;color:#000}
+
+/* About */
+.about-photo img{border-radius:16px;box-shadow:var(--shadow)}
+.feature-list{margin:14px 0 0;padding-left:18px}
+.feature-list li{margin:6px 0}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:700px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.card img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.card-body{padding:16px}
+.card h3{margin:0 0 6px;font-size:20px}
+.price{margin-top:8px;font-weight:700;color:var(--warm)}
+
+/* News */
+.card-news{padding:18px}
+.card-badge{display:inline-block;background:var(--warm);color:#fff;font-weight:700;font-size:12px;padding:4px 8px;border-radius:999px;margin-bottom:8px}
+
+/* Access */
+.map-wrap{aspect-ratio:16/10;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.map-wrap iframe{border:0;width:100%;height:100%}
+.access-info p{margin:6px 0}
+
+/* Footer */
+.site-footer{border-top:1px solid rgba(0,0,0,.08);padding:32px 0;background:#fff}
+.footer-inner{display:grid;gap:12px;align-items:center;justify-items:center}
+.footer-nav{display:flex;gap:16px}
+.footer-nav a{color:var(--fg);text-decoration:none}
+.sns{display:flex;gap:12px}
+.sns-link{color:#fff;background:var(--accent);padding:8px 12px;border-radius:8px;text-decoration:none}
+.copy{color:var(--muted)}
